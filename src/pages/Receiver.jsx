@@ -31,7 +31,7 @@ function Receiver() {
   const controlGrantedRef = useRef({ mouse: false, keyboard: false });
 
   useEffect(() => {
-    const socket = new WebSocket(socketUrl);
+    const socket = new WebSocket(import.meta.env.VITE_WS_URL || "ws://localhost:5001/ws");
     socketRef.current = socket;
 
     socket.onopen = () => {
